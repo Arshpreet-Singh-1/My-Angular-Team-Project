@@ -1,0 +1,10 @@
+<h2>Top Members</h2>
+<div class="members-menu">
+  <a *ngFor="let member of members"
+    routerLink="/detail/{{member.id}}">
+    {{member.name}}
+  </a>
+
+
+  <app-member-search></app-member-search>
+</div>

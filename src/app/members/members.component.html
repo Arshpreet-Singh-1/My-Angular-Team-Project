@@ -1,0 +1,27 @@
+<h2> My Team</h2>
+<ul class="members">
+    <li *ngFor="let member of members">
+        <a routerLink="/detail/{{member.id}}">
+            <span class="badge">{{member.id}}</span> {{member.name}}
+          </a>
+
+
+          <button type="button" class="delete" title="delete Member"
+          (click)="delete(member)">x</button>
+    </li>
+
+    <div>
+        <label for="new-member">Member name: </label>
+        <input id="new-member" #memberName />
+      
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button type="button" class="add-button" (click)="add(memberName.value); memberName.value=''">
+          Add Member
+        </button>
+      </div>
+
+
+</ul>
+
+
+
