@@ -1,6 +1,6 @@
 <div *ngIf="member">
     <h2>{{member.name | uppercase}}</h2>
-    <div> id : {{member.id}}</div>
+    <div> id : {{member.member_id}}</div>
     <div>
         <label for="member-name">Member name: </label>
         <input id="member-name" [(ngModel)] ="member.name" placeholder="name">

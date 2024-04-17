@@ -1,4 +1,4 @@
 export interface Member {
-    id: number;
+    member_id: number;
     name: string;
 }

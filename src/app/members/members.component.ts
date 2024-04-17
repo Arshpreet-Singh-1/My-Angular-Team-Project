@@ -41,6 +41,6 @@ export class MembersComponent {
 
   delete(member: Member): void {
     this.members= this.members.filter(h => h !== member);
-    this.memberService.deleteMember(member.id).subscribe();
+    this.memberService.deleteMember(member.member_id).subscribe();
   }
 }

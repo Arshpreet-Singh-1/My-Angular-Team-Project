@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MemberService {
 
-  private membersUrl = 'api/members';  // URL to web api
+  private membersUrl = 'http://localhost:3000/api/members'; 
 
 
   httpOptions = {
@@ -24,7 +24,7 @@ export class MemberService {
 
   /** GET meroes from the server */
   getMembers(): Observable<Member[]> {
-    return this.http.get<Member[]>(this.membersUrl)
+    return this.http.get<Member[]>(this.membersUrl )
       .pipe(
         tap(_ => this.log('fetched members')),
         catchError(this.handleError<Member[]>('getMembers', []))
@@ -66,7 +66,7 @@ export class MemberService {
   /** PUT: update the member on the server */
   updateMember(member: Member): Observable<any> {
     return this.http.put(this.membersUrl, member, this.httpOptions).pipe(
-      tap(_ => this.log(`updated member id=${member.id}`)),
+      tap(_ => this.log(`updated member id=${member.member_id}`)),
       catchError(this.handleError<any>('updateMember'))
     );
   }
@@ -74,7 +74,7 @@ export class MemberService {
   /** POST: add a new member to the server */
   addMember(hero: Member): Observable<Member> {
     return this.http.post<Member>(this.membersUrl, hero, this.httpOptions).pipe(
-      tap((newMember: Member) => this.log(`added member w/ id=${newMember.id}`)),
+      tap((newMember: Member) => this.log(`added member w/ id=${newMember.member_id}`)),
       catchError(this.handleError<Member>('addMemebr'))
     );
   }
